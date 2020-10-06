@@ -1,0 +1,18 @@
+# File that specifies the structure of the pipeline
+version: '3'
+
+services:
+  # 1. Container: collects news
+  news_collector:
+    build: news_collector/  # referencing locally (where to find on  my local machine)
+    volumes:
+    - ./news_collector/:/app   # synchronizes my local file with the container
+    depends_on:   # 'links' is the older version
+    - mongodb
+
+# 2. Container: mongo database - stores the URL (primiary key), timestamp etc.
+  mongodb:
+    image: mongo
+    ports:
+        - 27017:27017
+
