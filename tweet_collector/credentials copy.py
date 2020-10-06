@@ -1,8 +1,0 @@
-# File containing my personal Twitter credentials
-CONSUMER_API_KEY = "0bu46dWwKJJlLcKpvL2wp4Zke"
-CONSUMER_API_SECRET = "4C1z7VFfxDsEbweiycuLyVNsaQ7uFWWs0i6tvvyxxfZ3Z41edJ
-"
-ACCESS_TOKEN = "47356181-6oe6RGvJF2Zp3RPL5gcplmH1s5zET8F5fUiFK3EvV
-"
-ACCESS_TOKEN_SECRET = "eYAtREfIdXvniFLifDixB48af69kaDcoXuaGGzQP43s6I
-"
