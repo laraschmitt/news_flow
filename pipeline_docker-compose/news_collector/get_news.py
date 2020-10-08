@@ -5,11 +5,12 @@ import os
 import time
 from newsapi import NewsApiClient
 from datetime import date, timedelta
+import credentials
 # keys: name and alpha2
 
 # init
 
-newsapi = NewsApiClient(api_key='98b9ddb4d2eb4ecfb42a33c38daaeb74')
+newsapi = NewsApiClient(api_key=credentials.API_KEY)
 print(os.getcwd())
 data_dir = '/data/'
 for filename in os.listdir(os.getcwd() + data_dir):
