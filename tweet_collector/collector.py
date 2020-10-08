@@ -1,6 +1,7 @@
 import requests
 import os
 import json
+import credentials
 
 
 def get_rules(headers, bearer_token):
@@ -87,7 +88,7 @@ def get_stream(headers, set, bearer_token):
 
 
 def main():
-    bearer_token = "AAAAAAAAAAAAAAAAAAAAACz9HwEAAAAAC1mYWskN8Svjyqy7yvxpXJ2ALgg%3D92RtRCIjbduFOKNH1dCdrmhb0zB4V4yBi2EqaGIcgbM3kUUt7d"
+    bearer_token = credentials.BEARER_TOKEN
     headers = create_headers(bearer_token)
     rules = get_rules(headers, bearer_token)
     delete_all_rules(headers, bearer_token, rules)
