@@ -60,7 +60,8 @@ Here an image
 
 # What was interesting to learn?
 
-* first
-* second
+* setting up a whole pipeline on my own
+* the content result of the project
+* creating flow maps 😍
 
 ^ speaker notes
