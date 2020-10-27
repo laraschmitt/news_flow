@@ -100,6 +100,9 @@ sure not perfect method, since i also got some indiviudals that are very popular
     * 🜁 sql alchemy
     * 🐼 pandas
     * 🔢 numpy 
+    *  Psycopg2
+
+### Create a development server to explore D3 plotting
 * 🐘 **postgres** database
 * 🍼 **flask**
 * 🎨 **D3** for creating plots
