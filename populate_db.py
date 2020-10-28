@@ -42,6 +42,8 @@ engine = create_engine(f'postgres://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB}')
 
 
 # function to load data into postgres
+
+
 def load(j):
     """ Loads transformed tweeets into the Postgres database
     Parameters:
@@ -89,7 +91,7 @@ def load(j):
     follower_c = j.get('user', {}).get('followers_count')
     ver = j.get('user', {}).get('verified')
 
-    if (valid_entry and len(urls) and user_url) and user_location and ver and (follower_c > 10000):
+    if (valid_entry and len(urls) and user_url) and user_location and (ver or follower_c > 10000):
 
         user_loc_city_coords = ''
         user_loc_country_coords = ''
@@ -243,6 +245,8 @@ def load(j):
 
 
 path = "./data/archiveteam-twitter-stream-2020-06/06/01/"
+
+counter = 0
 for folder in sorted(os.listdir(path)):
     # print('load folder', folder)
     if not folder.startswith('.'):
@@ -261,6 +265,9 @@ for folder in sorted(os.listdir(path)):
                     for i, line in enumerate(bzinput):
                         tweet = json.loads(line)
                         load(tweet)
+                        counter += 1
 
-                if t == 3:
+                if t == 1:
                     break
+
+print('scanned_tweets', counter)
