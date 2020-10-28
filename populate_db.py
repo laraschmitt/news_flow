@@ -74,7 +74,8 @@ def load(j):
         VALUES (%s, %s, %s, %s, %s,
                 %s, %s, %s, %s, %s,
                 %s, %s, %s, %s, %s,
-                %s, %s, %s);"""
+                %s, %s, %s)
+        ON CONFLICT (tweet_id) DO NOTHING;"""
 
     # check for valid entries and if tweet json contains
     # any location information
