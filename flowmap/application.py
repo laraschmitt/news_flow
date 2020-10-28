@@ -18,7 +18,7 @@ def index():
 
 @app.route('/places')
 def places():
-    cur.execute("""SELECT from_coords from tweets_test""")
+    cur.execute("""SELECT from_country_coords, to_country_coords, from_country_name, to_country_name from tweets_test""")
     rows = cur.fetchall()
 
     features = []
@@ -26,37 +26,42 @@ def places():
     for row in rows:
         features.append({
             'type': 'Feature',
+            'properties': {
+                'from_country': row[2],
+                'to_country': row[3],
+            },
             'geometry': {
-                    'type': 'LineString',
-                    'coordinates': [
-                        row[0].split(','),
-                        row[0].split(',')
-                    ]
+                'type': 'LineString',
+                'coordinates': [
+                        row[0].split(',')[::-1],
+                        row[1].split(',')[::-1]
+                ]
             }
         })
     return jsonify({
         'type': 'FeatureCollection',
-        'features': [
-            {
-                'type': 'Feature',
-                'properties': {
-                    'count_tweets': 5,
-                    'from_country': 'USA',
-                    'to_country': 'random'
-                },
-                'geometry': {
-                    'type': 'LineString',
-                    'coordinates': [
-                        [
-                            -85.605166,
-                            30.355644
-                        ],
-                        [
-                            -99.1329340602939,
-                            19.444388301415472
-                        ]
-                    ]
-                }
-            }
-        ]
+        'features': features
+        # 'features': [
+        #     {
+        #         'type': 'Feature',
+        #         'properties': {
+        #             'count_tweets': 5,
+        #             'from_country': 'USA',
+        #             'to_country': 'random'
+        #         },
+        #         'geometry': {
+        #             'type': 'LineString',
+        #             'coordinates': [
+        #                 [
+        #                     -85.605166,
+        #                     30.355644
+        #                 ],
+        #                 [
+        #                     -99.1329340602939,
+        #                     19.444388301415472
+        #                 ]
+        #             ]
+        #         }
+        #     }
+        # ]
     })
