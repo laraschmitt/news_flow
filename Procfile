@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.app:app
+web: gunicorn heroku-flask.app:app
