@@ -1,5 +1,6 @@
 from flask import Flask, escape, request, render_template, jsonify
 import psycopg2
+import os
 from urllib.parse import urlparse
 
 database_url = os.getenv('DATABASE_URL')
