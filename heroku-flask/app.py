@@ -33,7 +33,7 @@ def index():
 
 @app.route('/places')
 def places():
-    cur.execute("""SELECT from_country_coords, to_country_coords, from_country_name, to_country_name from da24n081u0v4p""")
+    cur.execute("""SELECT from_country_coords, to_country_coords, from_country_name, to_country_name from tweets_test""")
     rows = cur.fetchall()
 
     features = []
