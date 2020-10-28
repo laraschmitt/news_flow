@@ -38,7 +38,9 @@ DB = 'tweets_multilingu'
 PASSWORD = 'postgres'
 
 # Create a postgres connection and assign it to 'engine' variable
-engine = create_engine(f'postgres://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB}')
+database_url = os.getenv('DATABASE_URL') or f'postgres://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB}'
+
+engine = create_engine(database_url)
 
 
 # function to load data into postgres
