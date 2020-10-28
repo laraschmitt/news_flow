@@ -11,12 +11,12 @@ df_city = pd.read_csv(
 df_country = pd.read_csv(
     './data/location_ref/country_multilingu_countrycode_countrycoord.csv',
     index_col=0)
-df_councode_counname = pd.read_csv(
-    './data/location_ref/IP2LOCATION-COUNTRY-MULTILINGUAL.csv')
-df_councode_counname_en = df_councode_counname[df_councode_counname['LANG_NAME'] == 'ENGLISH']
-
+df_councode_counname_en = pd.read_csv(
+    './data/location_ref/countrycode_countryname_en.csv')
 
 # extract URL function
+
+
 def extract_url(urls) -> str:
     """ Function to extract the url from the entities dict of the tweet json"""
 
@@ -91,7 +91,7 @@ def load(j):
     follower_c = j.get('user', {}).get('followers_count')
     ver = j.get('user', {}).get('verified')
 
-    if (valid_entry and len(urls) and user_url) and user_location and (ver or follower_c > 10000):
+    if (valid_entry and len(urls) and user_url) and user_location and ((ver and follower_c > 50000) or follower_c > 100000):
 
         user_loc_city_coords = ''
         user_loc_country_coords = ''
@@ -105,7 +105,7 @@ def load(j):
             # check if the found cityname in the tweet is a cityname in the language the tweet was written in (detected from twitter)
             if c_name_multi in j['text'] and df_city.loc[df_city['CITY_NAME'] == c_name_multi]['language'].values[0] == lang_code:
 
-                print('-------Cityname found in local language tweet---------', c_name_multi)
+                print('-------City found in tweet---------', c_name_multi, ' language', lang_code)
 
                 # map the cityname to its countries coordinates
                 to_country_coords = df_city.loc[df_city['CITY_NAME']
@@ -115,9 +115,6 @@ def load(j):
                                                  == to_country_coords]['COUNTRY_ALPHA2_CODE'].values[0]
                 to_country_name = df_councode_counname_en.loc[df_councode_counname_en[
                     'COUNTRY_ALPHA2_CODE'] == to_country_code]['COUNTRY_NAME'].values[0]
-
-                # print('Cityname found in tweet: ',
-                #       c_name_multi, 'in language: ', lang_code)
 
                 # find user loc coordinates and country coords
                 for _c_name_multi in df_city['CITY_NAME']:
@@ -143,14 +140,11 @@ def load(j):
                         from_country_name = df_councode_counname_en.loc[df_councode_counname_en[
                             'COUNTRY_ALPHA2_CODE'] == from_country_code]['COUNTRY_NAME'].values[0]
 
-                        # print('user location COUNTRY found', user_location, user_loc_country_coords,
-                        #       'english name: ', from_country_name)
-
-                print('City Loop', j['id'])
-                print('Setting user_location', user_location)
-                print('user_loc_city_coords', user_loc_city_coords)
-                print('from_country_coords', from_country_coords)
-                print('from_country_name', from_country_name)
+                # print('City Loop', j['id'])
+                # print('Setting user_location', user_location)
+                # print('user_loc_city_coords', user_loc_city_coords)
+                # print('from_country_coords', from_country_coords)
+                # print('from_country_name', from_country_name)
 
         # loop through multilingual country list
         for c_name_multi in df_country['COUNTRY_NAME']:
@@ -158,7 +152,7 @@ def load(j):
             # check if the found country in the tweet is a country in the language the tweet was written in (detected from twitter)
             if c_name_multi in j['text'] and df_country.loc[df_country['COUNTRY_NAME'] == c_name_multi]['LANG'].values[0] == lang_code:
 
-                print('-------Country found in local lang in tweet---------', c_name_multi)
+                print('-------Country found in tweet---------', c_name_multi, ' language', lang_code)
 
                 # get country coords
                 if not to_country_coords:
@@ -167,9 +161,6 @@ def load(j):
                 to_country_code = df_country.loc[df_country['country_lat_long_3857'] == to_country_coords]['COUNTRY_ALPHA2_CODE'].values[0]
                 if not to_country_name:
                     to_country_name = df_councode_counname_en.loc[df_councode_counname_en['COUNTRY_ALPHA2_CODE'] == to_country_code]['COUNTRY_NAME'].values[0]
-
-                # print('Country found in tweet: ', c_name_multi,
-                #       'in language: ', lang_code, 'english_name', to_country_name)
 
                 # find user loc coordinates and country coords
                 for _c_name_multi in df_country['COUNTRY_NAME']:
@@ -202,17 +193,14 @@ def load(j):
                         if not from_country_name:
                             from_country_name = df_councode_counname_en.loc[df_councode_counname_en['COUNTRY_ALPHA2_CODE'] == from_country_code]['COUNTRY_NAME'].values[0]
 
-                        print('user location CITY found', user_location,
-                              user_loc_city_coords, 'from_country', from_country_name)
-
                 # get url mentionend in tweet from entities dict
                 found_url = extract_url(j.get('entities').get('urls'))
 
-                print('Country Loop', j['id'])
-                print('Setting user_location', user_location)
-                print('user_loc_country_coords', user_loc_country_coords)
-                print('from_country_coords', from_country_coords)
-                print('from_country_name', from_country_name)
+                # print('Country Loop', j['id'])
+                # print('Setting user_location', user_location)
+                # print('user_loc_country_coords', user_loc_country_coords)
+                # print('from_country_coords', from_country_coords)
+                # print('from_country_name', from_country_name)
 
                 if (from_country_coords and to_country_coords) and (from_country_name != to_country_name):
                     # insert values into postgres DB
@@ -238,7 +226,7 @@ def load(j):
                         to_country_name
                     ))
 
-                    print('-------TWEET INGESTED IN DATABASE---------')
+                    print('------------------------------------> TWEET INGESTED IN DATABASE---------')
 
 # import from one day
 # next folder: stream-2020-06/06 2/02/
@@ -267,7 +255,7 @@ for folder in sorted(os.listdir(path)):
                         load(tweet)
                         counter += 1
 
-                if t == 1:
-                    break
+                # if t == 1:
+                #    break
 
-print('scanned_tweets', counter)
+print('scanned_tweets', counter, 'from filename', path)
