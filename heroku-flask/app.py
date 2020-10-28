@@ -1,9 +1,23 @@
 from flask import Flask, escape, request, render_template, jsonify
 import psycopg2
+from urllib.parse import urlparse
+
+database_url = os.getenv('DATABASE_URL')
+result = urlparse(database_url)
+
+username = result.username
+password = result.password
+database = result.path[1:]
+hostname = result.hostname
+
 
 try:
     conn = psycopg2.connect(
-        "dbname='tweets_multilingu' user='postgres' host='localhost' password='postgres'")
+    database=database,
+    user=username,
+    password=password,
+    host=hostname
+)
 except:
     print("I am unable to connect to the database")
 
@@ -18,7 +32,7 @@ def index():
 
 @app.route('/places')
 def places():
-    cur.execute("""SELECT from_country_coords, to_country_coords, from_country_name, to_country_name from tweets_test""")
+    cur.execute("""SELECT from_country_coords, to_country_coords, from_country_name, to_country_name from da24n081u0v4p""")
     rows = cur.fetchall()
 
     features = []
