@@ -13,11 +13,11 @@ hostname = result.hostname
 
 try:
     conn = psycopg2.connect(
-    database=database,
-    user=username,
-    password=password,
-    host=hostname
-)
+        database=database,
+        user=username,
+        password=password,
+        host=hostname
+    )
 except:
     print("I am unable to connect to the database")
 
@@ -55,6 +55,7 @@ def places():
     return jsonify({
         'type': 'FeatureCollection',
         'features': features
+    })
 
 
 if __name__ == "__main__":
