@@ -232,10 +232,11 @@ def load(j):
                     print('------------------------------------> TWEET INGESTED IN DATABASE---------')
 
 # import from one day
-# next folder: stream-2020-06/06 2/02/
+# next folder: stream-2020-06/06_2/02/
 
 
-path = "./data/archiveteam-twitter-stream-2020-06/06/01/"
+# day 1 = "./data/archiveteam-twitter-stream-2020-06/06/01/"
+path = "./data/archiveteam-twitter-stream-2020-06/06_2/02/"
 
 counter = 0
 for folder in sorted(os.listdir(path)):

@@ -137,3 +137,6 @@ course_material/*
 #ignore twitter credentials
 *credentials.py
 *data/
+
+# environment variabels
+.env
