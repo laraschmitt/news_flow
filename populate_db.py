@@ -1,8 +1,14 @@
-import pandas as pd
 import json
-from sqlalchemy import create_engine
-import bz2
 import os
+import bz2
+
+import pandas as pd
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
+
+
+# Load environment variables
+load_dotenv()
 
 # load lookup tables
 df_city = pd.read_csv(
@@ -231,35 +237,25 @@ def load(j):
 
                     print('------------------------------------> TWEET INGESTED IN DATABASE---------')
 
-# import from one day
-# next folder: stream-2020-06/06_2/02/
 
-
-# day 1 = "./data/archiveteam-twitter-stream-2020-06/06/01/"
-path = "./data/archiveteam-twitter-stream-2020-06/06_2/02/"
+path = "./data/archiveteam-twitter-stream-2020-06/"
 
 counter = 0
-for folder in sorted(os.listdir(path)):
-    # print('load folder', folder)
-    if not folder.startswith('.'):
 
-        t = 0
-        for file in sorted(os.listdir(path + folder)):
+for dirpath, dirs, files in sorted(os.walk(path)):
 
-            t += 1
-            if file.endswith('.bz2'):
+    print(dirpath)
+    for f in files:
+        os.path.join(dirpath, f)
 
-                # print(t)
-                # print('load file', file)
+        if f.endswith('.bz2'):
 
-                with bz2.open(path + folder + "/" + file, "rt") as bzinput:
+            with bz2.open(dirpath + "/" + f, "rt") as bzinput:
 
-                    for i, line in enumerate(bzinput):
-                        tweet = json.loads(line)
-                        load(tweet)
-                        counter += 1
+                for i, line in enumerate(bzinput):
+                    tweet = json.loads(line)
+                    load(tweet)
+                    counter += 1
 
-                # if t == 1:
-                #    break
 
-print('scanned_tweets', counter, 'from filename', path)
+print('scanned_tweets: ', counter, 'from ', path)
