@@ -26,9 +26,9 @@ Spearmint Vector Machine Cohorte
 * Why do I know about the pandemic situation in France but not about it in Poland?
 
 ---
-## Goal
+## Idea and Data
 
-* flowmap mapped to a globe to show about which countries a country reports 
+* flowmap mapped to a globe to show about which foreign countries a country reports 
 
 
 <style>
@@ -39,35 +39,59 @@ img[alt~="center"] {
 </style>
 
 ![w:200 center](flowmap_to_globe.png)
-
-
----
-
-## Data sources
+ 
 
 * first idea: use API from news collection websites → rate limits
-* twitter: news provider have twitter accounts 
+* second idea: **twitter data**: news provider have twitter accounts 
+* [**https://archive.org/**](https://archive.org/details/archiveteam-twitter-stream-2020-06)
 
 ---
 
-# Tweet structure
+###### 🐦 Tweet json
+
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto
+}
+</style>
+
+![w:800 center](tweet_json.png)
+
 
 
 ---
+# ⏳ Filter data
+
+- ### generate lookup tables
+- filter function:
+
+```if url in tweet given and and user_url given and user_location given and (user verified and follower_count > 50000) or follower_count > 100000):
+     loop through multilingual country list
+            if countryname multilingual found in **tweet_text**: 
+                if the found country in the tweet is a country in the language the tweet was written in:
+                    get country coordinates
+                  loop through multilingual country list:
+                      if countryname multilingual found in **user_location**:
+                          get user country coordinates
+                  loop through multilingual city list:
+                      if cityname multilingual found in user_location:
+                          get city coordinates
+                          get country of city coordinates
+      
+      loop through multilingual city list
+            if ....
+```
 
 
+---
 
 # ⏩ Data pipeline
+ 
+json files → filter & get coordinates script → postgres db → flask reads from DB → flask produces some json routes → d3 consumes jsons and renders the data
 
+(put a flowchart in here)
 
-FLOWCHART 
-for the tweet dump of June 2020:
-json files → filter & get coordinates script → postgres db → dashboard
-
-for the live dashboard:
-twitter API scraping → filtering  ...
-
-adjust code of ([globe basemap](http://bl.ocks.org/dwtkns/4686432))
 
 
 
