@@ -7,6 +7,7 @@ CREATE TABLE tweets_test(
     tweet_id BIGINT NOT NULL UNIQUE,
     timestamp_ms VARCHAR NOT NULL,
     tweet VARCHAR NOT NULL,
+    hashtags VARCHAR,
     url_in_tweet VARCHAR,
 
     user_url VARCHAR,
@@ -23,6 +24,8 @@ CREATE TABLE tweets_test(
     user_loc_country_coords VARCHAR,
     from_country_coords VARCHAR,
     from_country_name VARCHAR,
+    from_city_name VARCHAR, 
     to_country_coords VARCHAR,
-    to_country_Name VARCHAR
+    to_country_name VARCHAR,
+    to_city_name VARCHAR
 );
