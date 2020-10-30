@@ -1,14 +1,20 @@
-# Getting started with Flask and Heroku
+# Tweet globe 
 
-Template for deploying a flask app to heroku. Created for the [Spiced Data Science Bootcamp](https://www.spiced-academy.com/en/program/data-science).
+
+Analysis of foreign country and citynames mentionend in Tweets of users with a certain followercount and given user location. 
+
+hosted on heroku: https://twitter-globe.herokuapp.com/
 
 
 ## Requirements
 
-- free heroku account
+- free heroku account (webapp and postgres db)
 - heroku cli installed and set up locally 
 
 ## Instructions
+
+0. load dataset
+* archiveteam
 
 1. clone the repository
 
@@ -20,19 +26,13 @@ cd heroku-flask
 2. create a new heroku app
 
 ```bash
-heroku create <my-app-name>`
+heroku create twitter-globe`
 ```
 
 3. test the app locally
 
 ```bash
 heroku local web
-```
-
-on windows use 
-
-```bash
-heroku local web -f Procfile.windows
 ```
 
 4. push code to heroku
@@ -47,7 +47,3 @@ git push heroku master
 heroku open
 ```
 
-
-## Further Ressources
-
-- [Official python heroku tutorial](https://devcenter.heroku.com/articles/getting-started-with-python) using Djano
