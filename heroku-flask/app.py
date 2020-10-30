@@ -59,5 +59,19 @@ def places():
     })
 
 
+@app.route('/from_country_stats')
+def get_top_countries():
+    cur.execute("""SELECT from_country_coords, to_country_coords, from_country_name, to_country_name from tweets_test""")
+
+    return jsonify({
+        'data': [
+            {
+                'country_name': 'Australia',
+                'tweet_count': 1200
+            },
+        ],
+    })
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
