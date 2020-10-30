@@ -1,9 +1,6 @@
 
 --- https://query.wikidata.org/ 
--- SPARQL: SPARQL (SPARQL Protocol and RDF Query Language) is the query language 
--- we use to shape and return linked data from a triplestore.
-
-
+-- queries in SPARQL (SPARQL Protocol and RDF Query Language to shape and return linked data from a triplestore) 
 
 SELECT DISTINCT ?city ?country ?countryLabel ?alpha2Code (LANG(?cityLabel) AS ?language) ?cityLabel ?cityCoords ?countryCoords ?population ?capitalLabel ?capitalLabela WHERE {
   ?city (wdt:P31/(wdt:P279*)) wd:Q515;
@@ -17,9 +14,8 @@ SELECT DISTINCT ?city ?country ?countryLabel ?alpha2Code (LANG(?cityLabel) AS ?l
   OPTIONAL { ?country wdt:P36 ?capitalLabel.}
   OPTIONAL { ?capitalLabel rdfs:label ?capitalLabela.}
 }
-LIMIT 50
 
-
+                  
 SELECT DISTINCT ?city ?country (lang(?cityLabel) AS ?language) ?cityLabel ?alpha2Code ?cityCoords
 WHERE 
 {
@@ -30,7 +26,7 @@ WHERE
     ?city wdt:P625 ?cityCoords
 }
 
-
+                  
 SELECT ?city ?cityLabel  ?cityCoords ?population
 WHERE 
 {
