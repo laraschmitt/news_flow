@@ -5,6 +5,13 @@ Analysis of foreign country and citynames mentionend in Tweets of users with a c
 
 hosted on heroku: https://twitter-globe.herokuapp.com/
 
+### Datasets used:
+- 
+- [IP2Location™ City Multilingual Database] (https://www.ip2location.com/free/city-multilingual)
+- [IP2Location™ Country Multilingual Database] (https://www.ip2location.com/free/country-multilingual)
+
+#### Globe basemap
+- [Faux-3d Shaded Globe] (http://bl.ocks.org/dwtkns/4686432)
 
 ## Requirements
 
