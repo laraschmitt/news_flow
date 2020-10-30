@@ -141,3 +141,4 @@ course_material/*
 # environment variabels
 .env
 *explore_D3_plotting
+speaker_notes.md
