@@ -142,3 +142,4 @@ course_material/*
 .env
 *explore_D3_plotting
 speaker_notes.md
+test_oswalk.py
