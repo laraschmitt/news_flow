@@ -67,37 +67,40 @@ json files → filter & get coordinates script → postgres db → dashboard
 for the live dashboard:
 twitter API scraping → filtering  ...
 
+adjust code of ([globe basemap](http://bl.ocks.org/dwtkns/4686432))
+
+
+
 ---
 
 # 💻 Tech stack
-* 🐍 **python**: data exploration and scraping
-    * 🜁 sql alchemy
-    * 🐼 pandas
-    * 🔢 numpy 
-    *  Psycopg2
-
-* 🐘 **postgres** database
-* 🍼 **flask**
-* 🎨 **D3** for creating plots
-* ☁️ heroku
+* 🐍 **python**: data exploration, wrangling and db insert
+     * 🐼 pandas
+     * 🧙🏻‍♀️ sql alchemy
+* 🐘 **postgres**: database
+* ❓ **SQL**: query the DB
+* 🧪 **flask**: python web framework
+* 🎨 **D3.js**: visualization
+* ☁️ **heroku**: hosting 
 
 
 
 ---
 # ⏰ Time spend 
-* find data: `2 hours`
 
-* getting ready and write load to DB function `3 days`
+* find/ explore datasets: `1 day`
+
+* write SPARQL queries `1 afternoon`
+
+* **data wrangling**: explore/ combine/ alter lookup tables `3 days`
+
+* **write function** to filter tweets and load to DB: `3-4 days`
   
-* write scraping script `1 afternoon`
+* create globe visualization (with major help!) `1 morning`
 
-* create flow map 
+* set up flask server `1 afternoon`
 
-* set up dashboard and write SQL queries `loooong`
-
-* set up flask `lllong`
-
-* deploy on .... `shorter`
+* deploy on heroku `1 afternoon`
 
 ---
 
@@ -106,15 +109,16 @@ twitter API scraping → filtering  ...
 * exploring tweets from around the world 
 * setting up a whole pipeline on my own
 * first insights in how to visualize with D3.js 
-* creating a data-driven map [data-driven map ](https://twitter-globe.herokuapp.com/)
+* creating a [data-driven map](https://twitter-globe.herokuapp.com/)
 
 
 ---
 
 # Future plans
-* 📝 rewrite my "insert_data" function 
+* 📝 rewrite my giant "filter_and_insert_data" function 
 * 🐳 dockerize 
 * 🐦 connect to twitter API 
+* ...
 
 ---
 <br>
