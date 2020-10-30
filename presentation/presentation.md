@@ -43,13 +43,6 @@ img[alt~="center"] {
 
 ---
 
-
-
-
-![w:150 h:150](flowmap_to_globe.png)
-
-
-
 ## Data sources
 
 * first idea: use API from news collection websites → rate limits
