@@ -1,0 +1,14 @@
+{
+  "name": "@laraschmitt/zoomable-bar-chart",
+  "main": "398572efc5963a86@240.js",
+  "version": "240.0.0",
+  "homepage": "https://observablehq.com/@laraschmitt/zoomable-bar-chart",
+  "author": {
+    "name": "lara ",
+    "url": "https://observablehq.com/@laraschmitt"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
