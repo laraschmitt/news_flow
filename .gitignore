@@ -136,10 +136,15 @@ course_material/*
 
 #ignore twitter credentials
 *credentials.py
+
+#ignore tweet data dump
 *data/
 
 # environment variabels
 .env
+
+#ignore unnecessary files
+*.pdf
 *explore_D3_plotting
 speaker_notes.md
 test_oswalk.py
