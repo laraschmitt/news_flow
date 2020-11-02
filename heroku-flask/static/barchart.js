@@ -1,4 +1,4 @@
 
 
 
- var svg = d3.select(".barchart").append("svg")
+//  var svg = d3.select(".barchart").append("svg")

@@ -4,13 +4,22 @@
   <title>🐦🌏 Tweet Globe</title>
   <link href="/static/globe-styles.css" rel="stylesheet"/>
   <body>
-    <h1>Bar chart goes here</h1>
-    <div class="tweet-globe"></div>
+    <h1 id="myHeader">How globalized are our tweets?</h1>
+    <p id='description'>This visualization shows the result of an analysis of 
+      tweets from June 2020. Tweets were filtered by the key conditions that a foreign 
+      place (country or city) was mentioned in the tweet text and the user location given could 
+      be indentified as a geographical location. An arc line connecting two countries indicates that
+      at least one tweet was sent from one of the countries mentioning the other country or a city in the other country 
+      with a population size > 900,000. </p>
+    <div id="globePos" class="tweet-globe"></div>
     <div class="barchart"></div>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script src="https://d3js.org/topojson.v0.min.js"></script>
     <script src="/static/globe.js"></script>
     <script src="/static/barchart.js"></script>
+    <p id='footNote'>Further filters applied were: The place name mentioned in the tweet had to be in the language of the tweet text, a URL given in tweet text, URL given in user profile,
+      user follower count > 100,000 or user has verified profile and > 50,000 follower. The intention of setting
+    these filters was to capture mainly tweets from newsmedia accounts. </p>
   </body>
 </html>

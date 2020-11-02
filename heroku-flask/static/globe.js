@@ -4,7 +4,7 @@ d3.select(window)
     .on("mouseup", mouseup);
 
   var width = 960,
-    height = 500;
+    height = 600;
 
   var proj = d3.geo.orthographic()
     .translate([width / 2, height / 2])

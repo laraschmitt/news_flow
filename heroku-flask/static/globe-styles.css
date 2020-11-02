@@ -1,3 +1,40 @@
+#myHeader {
+    color: rgba(6, 7, 7, 0.783);
+    padding: 1px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: normal;
+}
+
+#description {
+    color: rgba(6, 7, 7, 0.783);
+    padding: 1px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: smaller;
+    font-weight: lighter;
+    margin-right: 350px;
+    margin-left: 350px;
+
+}
+
+#footNote {
+    color: rgba(6, 7, 7, 0.783);
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: x-small;
+    font-weight: lighter;
+    margin-right: 150px;
+    margin-left: 150px;
+
+}
+
+.tweet-globe {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 .tweet-globe .land {
     fill: #dadcda;
     stroke-opacity: 1;
