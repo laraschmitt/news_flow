@@ -44,7 +44,7 @@ print(df_dup_free.shape)
 # remove non numerical characters
 df_dup_free['population'] = df_dup_free['population'].str.replace(r'[a-zA-Z]', '').astype('float')
 
-# kick out small cities (pop size < 300000)
+# kick out small cities (pop size < 900000)
 df_dup_free = df_dup_free[df_dup_free['population'] >= 900000]
 print(df_dup_free.shape)
 
