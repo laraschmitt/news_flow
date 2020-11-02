@@ -28,7 +28,7 @@ Spearmint Vector Machine Cohorte
 ---
 ## Idea and Data
 
-* flowmap mapped to a globe to show about which foreign countries a country reports 
+* create an interactive globe displaying country connections within a tweet 
 
 
 <style>
@@ -59,31 +59,6 @@ img[alt~="center"] {
 ![w:800 center](tweet_json.png)
 
 
-
----
-# ⏳ Filter data
-
-- ### generate lookup tables
-- filter function:
-
-```if url in tweet given and and user_url given and user_location given and (user verified and follower_count > 50000) or follower_count > 100000):
-     loop through multilingual country list
-            if countryname multilingual found in **tweet_text**: 
-                if the found country in the tweet is a country in the language the tweet was written in:
-                    get country coordinates
-                  loop through multilingual country list:
-                      if countryname multilingual found in **user_location**:
-                          get user country coordinates
-                  loop through multilingual city list:
-                      if cityname multilingual found in user_location:
-                          get city coordinates
-                          get country of city coordinates
-      
-      loop through multilingual city list
-            if ....
-```
-
-
 ---
 
 # ⏩ Data pipeline
@@ -91,6 +66,7 @@ img[alt~="center"] {
 json files → filter & get coordinates script → postgres db → flask reads from DB → flask produces some json routes → d3 consumes jsons and renders the data
 
 (put a flowchart in here)
+⏳ Filter data
 
 
 
