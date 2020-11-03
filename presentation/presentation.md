@@ -13,9 +13,7 @@ _class: invert
 
 
 ##### Lara Schmitt
-Spiced Academy Data Science Course - Final Project
-Spearmint Vector Machine Cohorte 
-2 November, 2020
+
 
 ---
 
@@ -52,21 +50,26 @@ img[alt~="center"] {
 <style>
 img[alt~="center"] {
   display: block;
-  margin: 0 auto
+  margin: 1
 }
 </style>
 
-![w:800 center](tweet_json.png)
+![w:700 center](tweet_json.png)
 
 
 ---
 
 # ⏩ Data pipeline
  
-json files → filter & get coordinates script → postgres db → flask reads from DB → flask produces some json routes → d3 consumes jsons and renders the data
+R
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto
+}
+</style>
 
-(put a flowchart in here)
-⏳ Filter data
+![w:1100 center](flowchart_tweet_globe.png)
 
 
 
@@ -120,7 +123,3 @@ json files → filter & get coordinates script → postgres db → flask reads f
 * 🐦 connect to twitter API 
 * ...
 
----
-<br>
-
-# Thanks, spiced & spearmints! 
