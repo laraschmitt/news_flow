@@ -27,7 +27,7 @@ hosted on heroku: https://twitter-globe.herokuapp.com/
 1. clone the repository
 
 ```bash
-git clone https://github.com/bonartm/heroku-flask.git
+git clone git@github.com:laraschmitt/tweet_globe.git
 cd heroku-flask
 ```
 
