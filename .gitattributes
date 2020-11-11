@@ -1,0 +1,13 @@
+data/location_ref/city_multilingu_citycoord_countrycode_countrycoord.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/cityco_citypop.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/citycoords_citynames_en.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/councode_councood.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/IP2LOCATION-COUNTRY-MULTILINGUAL.CSV filter=lfs diff=lfs merge=lfs -text
+data/location_ref/LICENSE_IP2LOCATION.TXT filter=lfs diff=lfs merge=lfs -text
+data/location_ref/ountrycodes_coord.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/pre_country_multilingu_countrycode_countrycoord.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/citynamemulti_councode_cityco.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/citynamemulti_councode_cityco_citypop.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/country_multilingu_countrycode_countrycoord.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/countrycode_countryname_en.csv filter=lfs diff=lfs merge=lfs -text
+data/location_ref/worldcities.csv filter=lfs diff=lfs merge=lfs -text
