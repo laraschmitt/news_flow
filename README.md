@@ -6,7 +6,7 @@ Analysis of foreign country and citynames mentionend in Tweets of users with a c
 hosted on heroku: https://twitter-globe.herokuapp.com/
 
 
-<img src="browser_preview.png" alt="example" width="700"/>
+<img src="browser_preview.png" alt="example" width="1100"/>
 
 
 ### Data obtained from:
