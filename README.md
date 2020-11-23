@@ -1,7 +1,7 @@
 # 🐦🌏 Tweet globe 
 
 
-Analysis of foreign country and citynames mentionend in Tweets of users with a certain followercount and given user location (in June 2020). 
+Analysis of foreign country and citynames mentionend in Tweets of users with a certain followercount and given user location (in June 2020). The country connections are displayed on an interactive globe.
 
 hosted on heroku: https://twitter-globe.herokuapp.com/
 
